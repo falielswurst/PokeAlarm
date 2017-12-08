@@ -22,12 +22,12 @@ class DiscordAlarm(Alarm):
     _defaults = {
         'pokemon': {
             'username': "<pkmn>",
-            'content':"",
+            'content':"Ends @ <24h_time> (<time_left>)\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
-            'title': "A wild <pkmn> has appeared!",
+            'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "Available until <24h_time> (<time_left>)."
+            'body': "**<address>**\n**#<pkmn_id>** <pkmn><gender>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         },
         'pokestop': {
             'username': "Pokestop",
@@ -48,22 +48,22 @@ class DiscordAlarm(Alarm):
             'body': "It is now controlled by <new_team>."
         },
         'egg': {
-            'username': "Egg",
-            'content': "",
+            'username': "Level <raid_level> Egg",
+            'content': "In <geofence>\nHatches: <begin_24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/egg_<raid_level>.png",
-            'title': "Raid is incoming!",
+            'title': "<address> (Google Maps)",
             'url': "<gmaps>",
-            'body': "A level <raid_level> raid will hatch <begin_24h_time> (<begin_time_left>)."
+            'body': "**Gym:** <gym_name>\n**Located in:** <geofence>\n\n**Hatches:** <begin_24h_time>"
         },
         'raid': {
-            'username': "Raid",
-            'content': "",
+            'username': "<pkmn> raid!",
+            'content': "In <geofence>\nEnds: <24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
-            'title': "Level <raid_level> Raid is available against <pkmn>!",
+            'title': "<address> (Google Maps)",
             'url': "<gmaps>",
-            'body': "The raid is available until <24h_time> (<time_left>)."
+            'body': "**#<pkmn_id>** <pkmn>\n**Gym:** <gym_name>\n**Located in:** <geofence>\n**Moves:** <quick_move> / <charge_move>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         }
     }
 
