@@ -22,12 +22,12 @@ class DiscordAlarm(Alarm):
     _defaults = {
         'pokemon': {
             'username': "<pkmn>",
-            'content':"Ends @ <24h_time> (<time_left>)\n[Apple Maps](<applemaps>)",
+            'content':"Ends @ <24h_time> (<time_left>)\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
-            'title': "<address>",
+            'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "#<pkmn_id> <pkmn>\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
+            'body': "**<address>**\n**#<pkmn_id>** <pkmn><gender>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         },
         'pokestop': {
             'username': "Pokestop",
@@ -49,21 +49,21 @@ class DiscordAlarm(Alarm):
         },
         'egg': {
             'username': "Level <raid_level> Egg",
-            'content': "In <geofence>\nStarts @ <begin_24h_time>\n**Gym: <gym_name>**\n[Apple Maps](<applemaps>)",
+            'content': "In <geofence>\nHatches: <begin_24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/egg_<raid_level>.png",
-            'title': "<address>",
+            'title': "<address> (Google Maps)",
             'url': "<gmaps>",
-            'body': "**Located in:** <geofence>\n**Hatches:** <begin_24h_time>\n**Gym:** <gym_name>"
+            'body': "**Gym:** <gym_name>\n**Located in:** <geofence>\n\n**Hatches:** <begin_24h_time>"
         },
         'raid': {
             'username': "<pkmn> raid!",
-            'content': "In <geofence>\nEnds @ <24h_time> (<time_left>)\n**<gym_name>**\n[Apple Maps](<applemaps>)",
+            'content': "In <geofence>\nEnds: <24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
-            'title': "<address>",
+            'title': "<address> (Google Maps)",
             'url': "<gmaps>",
-            'body': "#<pkmn_id> <pkmn>\n**Moves:** <quick_move> / <charge_move>\n**Located in:** <geofence>\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
+            'body': "**#<pkmn_id>** <pkmn>\n**Gym:** <gym_name>\n**Located in:** <geofence>\n**Moves:** <quick_move> / <charge_move>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         }
     }
 
