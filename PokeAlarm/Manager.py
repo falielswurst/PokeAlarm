@@ -145,7 +145,7 @@ class Manager(object):
                     self.set_optional_args(str(alarm))
                     if _type == 'discord':
                         from Discord import DiscordAlarm
-                        self.__alarms.append(DiscordAlarm(alarm, max_attempts, random.choice(self.__google_key)))
+                        self.__alarms.append(DiscordAlarm(alarm, max_attempts, self.__google_key))
                     elif _type == 'facebook_page':
                         from FacebookPage import FacebookPageAlarm
                         self.__alarms.append(FacebookPageAlarm(alarm))
@@ -154,7 +154,7 @@ class Manager(object):
                         self.__alarms.append(PushbulletAlarm(alarm))
                     elif _type == 'slack':
                         from Slack import SlackAlarm
-                        self.__alarms.append(SlackAlarm(alarm, random.choice(self.__google_key)))
+                        self.__alarms.append(SlackAlarm(alarm, self.__google_key))
                     elif _type == 'telegram':
                         from Telegram import TelegramAlarm
                         self.__alarms.append(TelegramAlarm(alarm))

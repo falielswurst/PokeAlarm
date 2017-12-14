@@ -1,6 +1,7 @@
 # Standard Library Imports
 import logging
 import re
+import random
 # 3rd Party Imports
 from slacker import Slacker
 # Local Imports
@@ -105,7 +106,7 @@ class SlackAlarm(Alarm):
             'title': settings.pop('title', default['title']),
             'url': settings.pop('url', default['url']),
             'body': settings.pop('body', default['body']),
-            'map': get_static_map_url(settings.pop('map', self.__map), self.__static_map_key)
+            'map': get_static_map_url(settings.pop('map', self.__map), random.choice(self.__static_map_key))
         }
         reject_leftover_parameters(settings, "'Alert level in Slack alarm.")
         return alert
