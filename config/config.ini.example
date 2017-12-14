@@ -12,7 +12,7 @@
 
 # Manager-Specific Settings
 #manager_name                                   # Name of the Manager in the logs. Default(manager_0).
-#key:                                           # Google Maps API Key to use
+key: ['key1', 'key2', 'etc']                                          # Google Maps API Key to use
 #filters:										# File containing filter rules (default: filters.json)
 #alarms: 										# File containing alarm rules (default: alarms.json)
 #geofence:										# File containing geofence(s) used to filter (default: None)
