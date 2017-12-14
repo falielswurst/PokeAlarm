@@ -7,6 +7,7 @@ import multiprocessing
 import traceback
 import re
 import sys
+import random
 # 3rd Party Imports
 import gipc
 # Local Imports
@@ -29,15 +30,11 @@ class Manager(object):
         self.__name = str(name).lower()
         log.info("----------- Manager '{}' is being created.".format(self.__name))
         self.__debug = debug
-
+        self.__google_key = google_key
         # Get the Google Maps API
-        self.__google_key = None
         self.__loc_service = None
-        if str(google_key).lower() != 'none':
-            self.__google_key = google_key
-            self.__loc_service = LocationService(google_key, locale, units)
-        else:
-            log.warning("NO GOOGLE API KEY SET - Reverse Location and Distance Matrix DTS will NOT be detected.")
+        self.__loc_service = LocationService(self.__google_key, locale, units)
+       
 
         self.__locale = Locale(locale)  # Setup the language-specific stuff
         self.__units = units  # type of unit used for distances
@@ -148,7 +145,7 @@ class Manager(object):
                     self.set_optional_args(str(alarm))
                     if _type == 'discord':
                         from Discord import DiscordAlarm
-                        self.__alarms.append(DiscordAlarm(alarm, max_attempts, self.__google_key))
+                        self.__alarms.append(DiscordAlarm(alarm, max_attempts, random.choice(self.__google_key)))
                     elif _type == 'facebook_page':
                         from FacebookPage import FacebookPageAlarm
                         self.__alarms.append(FacebookPageAlarm(alarm))
@@ -157,7 +154,7 @@ class Manager(object):
                         self.__alarms.append(PushbulletAlarm(alarm))
                     elif _type == 'slack':
                         from Slack import SlackAlarm
-                        self.__alarms.append(SlackAlarm(alarm, self.__google_key))
+                        self.__alarms.append(SlackAlarm(alarm, random.choice(self.__google_key)))
                     elif _type == 'telegram':
                         from Telegram import TelegramAlarm
                         self.__alarms.append(TelegramAlarm(alarm))
