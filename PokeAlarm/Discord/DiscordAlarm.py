@@ -1,6 +1,7 @@
 # Standard Library Imports
 import logging
 import requests
+import random
 # 3rd Party Imports
 # Local Imports
 from ..Alarm import Alarm
@@ -27,7 +28,7 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "**<address>**\n**#<pkmn_id>** <pkmn><gender>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
+            'body': "**#<pkmn_id>** <pkmn><gender>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         },
         'pokestop': {
             'username': "Pokestop",
@@ -52,18 +53,18 @@ class DiscordAlarm(Alarm):
             'content': "In <geofence>\nHatches: <begin_24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/egg_<raid_level>.png",
-            'title': "<address> (Google Maps)",
+            'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "**Gym:** <gym_name>\n**Located in:** <geofence>\n\n**Hatches:** <begin_24h_time>"
+            'body': "**<address>**\n**Gym:** <gym_name>\n**Located in:** <geofence>\n\n**Hatches:** <begin_24h_time>"
         },
         'raid': {
             'username': "<pkmn> raid!",
             'content': "In <geofence>\nEnds: <24h_time>\n\n[Apple Maps](<applemaps>)\n",
             'icon_url': "<gym_url>",
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
-            'title': "<address> (Google Maps)",
+            'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "**#<pkmn_id>** <pkmn>\n**Gym:** <gym_name>\n**Located in:** <geofence>\n**Moves:** <quick_move> / <charge_move>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
+            'body': "**<address>**\n**#<pkmn_id>** <pkmn>\n**Gym:** <gym_name>\n**Located in:** <geofence>\n**Moves:** <quick_move> / <charge_move>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         }
     }
 
@@ -121,7 +122,7 @@ class DiscordAlarm(Alarm):
             'title': settings.pop('title', default['title']),
             'url': settings.pop('url', default['url']),
             'body': settings.pop('body', default['body']),
-            'map': get_static_map_url(settings.pop('map', self.__map), self.__static_map_key)
+            'map': get_static_map_url(settings.pop('map', self.__map), random.choice(self.__static_map_key))
         }
 
         reject_leftover_parameters(settings, "'Alert level in Discord alarm.")

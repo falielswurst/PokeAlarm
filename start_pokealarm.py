@@ -113,7 +113,7 @@ def parse_settings(root_path):
                         help='Number of Manager processes to start.')
     parser.add_argument('-M', '--manager_name', type=parse_unicode, action='append', default=[],
                         help='Names of Manager processes to start.')
-    parser.add_argument('-k', '--key', type=parse_unicode, action='append', default=[None],
+    parser.add_argument('-k', '--key', type=str, action='append', default=[],
                         help='Specify a Google API Key to use.')
     parser.add_argument('-f', '--filters', type=parse_unicode, action='append', default=['filters.json'],
                         help='Filters configuration file. default: filters.json')
@@ -150,7 +150,7 @@ def parse_settings(root_path):
     config['DEBUG'] = args.debug
 
     # Check to make sure that the same number of arguements are included
-    for list_ in [args.key, args.filters, args.alarms, args.geofences, args.location,
+    for list_ in [args.filters, args.alarms, args.geofences, args.location,
                   args.locale, args.units, args.timelimit, args.max_attempts, args.timezone]:
         if len(list_) > 1:  # Remove defaults from the list
             list_.pop(0)
@@ -180,7 +180,7 @@ def parse_settings(root_path):
         config['UNITS'] = args.units[m_ct] if len(args.units) > 1 else args.units[0]
         m = Manager(
             name=args.manager_name[m_ct] if m_ct < len(args.manager_name) else "Manager_{}".format(m_ct),
-            google_key=args.key[m_ct] if len(args.key) > 1 else args.key[0],
+            google_key=args.key if len(args.key) > 1 else args.key[0],
             locale=args.locale[m_ct] if len(args.locale) > 1 else args.locale[0],
             units=args.units[m_ct] if len(args.units) > 1 else args.units[0],
             timezone=args.timezone[m_ct] if len(args.timezone) > 1 else args.timezone[0],
