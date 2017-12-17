@@ -180,7 +180,7 @@ def parse_settings(root_path):
         config['UNITS'] = args.units[m_ct] if len(args.units) > 1 else args.units[0]
         m = Manager(
             name=args.manager_name[m_ct] if m_ct < len(args.manager_name) else "Manager_{}".format(m_ct),
-            google_key=args.key if len(args.key) > 1 else args.key[0],
+            google_key=args.key,
             locale=args.locale[m_ct] if len(args.locale) > 1 else args.locale[0],
             units=args.units[m_ct] if len(args.units) > 1 else args.units[0],
             timezone=args.timezone[m_ct] if len(args.timezone) > 1 else args.timezone[0],
