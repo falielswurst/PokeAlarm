@@ -123,7 +123,6 @@ def get_team_id(team_name):
                     get_team_id.ids[nm] = int(id_)
     return get_team_id.ids.get(name)
 
-
 # Returns the damage of a move when requesting
 def get_move_damage(move_id):
     if not hasattr(get_move_damage, 'info'):
