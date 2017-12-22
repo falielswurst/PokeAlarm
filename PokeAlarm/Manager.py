@@ -348,7 +348,6 @@ class Manager(object):
         name = pkmn['pkmn']
         quick_id = pkmn['quick_id']
         charge_id = pkmn['charge_id']
-	weather_id = pkmn['weather']
 
         for filt_ct in range(len(filters)):
             filt = filters[filt_ct]
@@ -582,6 +581,7 @@ class Manager(object):
 
         quick_id = pkmn['quick_id']
         charge_id = pkmn['charge_id']
+	weather_id = pkmn['weather']
 
         # Check all the geofences
         pkmn['geofence'] = self.check_geofences(name, lat, lng)
