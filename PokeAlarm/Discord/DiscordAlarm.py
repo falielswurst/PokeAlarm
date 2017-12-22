@@ -28,7 +28,7 @@ class DiscordAlarm(Alarm):
             'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'title': "Google Maps",
             'url': "<gmaps>",
-            'body': "**#<pkmn_id>** <pkmn><gender>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
+            'body': "**#<pkmn_id>** <pkmn><gender>\n**Weather Boost:** <weather>\n\n**Ends:** <24h_time>\n**Time Left:** <time_left>"
         },
         'pokestop': {
             'username': "Pokestop",

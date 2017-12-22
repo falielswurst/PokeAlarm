@@ -46,6 +46,8 @@ class RocketMap:
         quick_id = check_for_none(int, data.get('move_1'), '?')
         charge_id = check_for_none(int, data.get('move_2'), '?')
         lat, lng = data['latitude'], data['longitude']
+	weather_id = check_for_none(int, data.get('weather'), '?')
+
         # Generate all the non-manager specifi
         pkmn = {
             'type': "pokemon",
@@ -78,7 +80,8 @@ class RocketMap:
             'tiny_rat': '',
             'big_karp': '',
             'gmaps': get_gmaps_link(lat, lng),
-            'applemaps': get_applemaps_link(lat, lng)
+            'applemaps': get_applemaps_link(lat, lng),
+	    'weather': weather_id
         }
         if pkmn['atk'] != '?' or pkmn['def'] != '?' or pkmn['sta'] != '?':
             pkmn['iv'] = float(((pkmn['atk'] + pkmn['def'] + pkmn['sta']) * 100) / float(45))

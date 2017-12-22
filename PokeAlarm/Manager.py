@@ -581,6 +581,7 @@ class Manager(object):
 
         quick_id = pkmn['quick_id']
         charge_id = pkmn['charge_id']
+	weather_id = pkmn['weather']
 
         # Check all the geofences
         pkmn['geofence'] = self.check_geofences(name, lat, lng)
@@ -604,7 +605,8 @@ class Manager(object):
             'iv_2': "{:.2f}".format(iv) if iv != '?' else '?',
             'quick_move': self.__locale.get_move_name(quick_id),
             'charge_move': self.__locale.get_move_name(charge_id),
-            'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else ''
+            'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else '',
+	    'weather': self.__locale.get_weather_name(weather_id)
         })
         if self.__loc_service:
             self.__loc_service.add_optional_arguments(self.__location, [lat, lng], pkmn)
